@@ -1,0 +1,197 @@
+{
+  "theme": "light",
+  "archetype": "ORGANIC & EARTHY + SWISS UTILITY (Archetype 1 + Archetype 4)",
+  "emotional_tone": "Professional, reliable, organized, and encouraging academic atmosphere with strict privacy borders",
+  "app_type": "dashboard / saas_app",
+  "fonts": {
+    "heading": "Outfit Variable, -apple-system, BlinkMacSystemFont, sans-serif",
+    "body": "Plus Jakarta Sans Variable, -apple-system, BlinkMacSystemFont, sans-serif",
+    "mono": "IBM Plex Mono, monospace",
+    "import_statements": [
+      "@import \"@fontsource-variable/outfit\";",
+      "@import \"@fontsource-variable/plus-jakarta-sans\";",
+      "@import \"@fontsource/ibm-plex-mono\";"
+    ]
+  },
+  "typography": {
+    "scale_px": {
+      "display": 48,
+      "h1": 36,
+      "h2": 28,
+      "h3": 20,
+      "body": 15,
+      "caption": 13
+    },
+    "rules": {
+      "headings": "font-heading font-bold tracking-tight text-slate-900 dark:text-slate-100",
+      "subheadings": "font-sans font-medium text-slate-600 dark:text-slate-300",
+      "body": "font-sans text-[15px] leading-relaxed text-slate-700 dark:text-slate-200",
+      "mono_badges": "font-mono text-xs uppercase tracking-wider"
+    }
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#F8FAFC",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#475569",
+        "roles": {
+          "border": "#E2E8F0",
+          "sidebar_bg": "#0F172A",
+          "sidebar_text": "#F8FAFC",
+          "sidebar_muted": "#94A3B8"
+        }
+      },
+      {
+        "name": "card_panel",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#0F172A",
+        "on_bg_muted": "#475569",
+        "roles": {
+          "border": "#E2E8F0",
+          "hover_bg": "#F1F5F9"
+        }
+      },
+      {
+        "name": "secret_rate_badge",
+        "kind": "solid",
+        "bg": "#FEF3C7",
+        "on_bg": "#92400E",
+        "on_bg_muted": "#B45309",
+        "roles": {
+          "border": "#FDE68A"
+        }
+      },
+      {
+        "name": "status_lunas_badge",
+        "kind": "solid",
+        "bg": "#DCFCE7",
+        "on_bg": "#166534",
+        "on_bg_muted": "#15803D"
+      },
+      {
+        "name": "status_belum_bayar_badge",
+        "kind": "solid",
+        "bg": "#FEE2E2",
+        "on_bg": "#991B1B",
+        "on_bg_muted": "#B91C1C"
+      },
+      {
+        "name": "status_tervalidasi_badge",
+        "kind": "solid",
+        "bg": "#DBEAFE",
+        "on_bg": "#1E40AF",
+        "on_bg_muted": "#2563EB"
+      },
+      {
+        "name": "modal_overlay",
+        "kind": "glass",
+        "contrast_against": "#0F172A",
+        "guarantee": "backdrop-blur-md bg-slate-900/50",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CBD5E1"
+      }
+    ],
+    "accent": "#2563EB",
+    "on_accent": "#FFFFFF",
+    "role_palette": {
+      "admin_theme": {
+        "primary": "#1E3A8A",
+        "light": "#EFF6FF",
+        "badge": "bg-indigo-50 text-indigo-700 border-indigo-200"
+      },
+      "tentor_theme": {
+        "primary": "#0D9488",
+        "light": "#F0FDFA",
+        "badge": "bg-teal-50 text-teal-700 border-teal-200"
+      }
+    }
+  },
+  "entry_surfaces": {
+    "/login": "split card auth — Left brand positioning banner with Bimbel identity & role selector toggle, Right clean credential form",
+    "/": "admin command center — high-density KPI metrics, active student counts, validation queue, today's schedule feed",
+    "/tentor/dashboard": "tentor focused portal — quick check-in 'Jadwal Hari Ini', journal submission queue, and student report card drafts"
+  },
+  "layouts": {
+    "dashboard_grid": "MODE B: High Density Grid (12-column responsive layout with 4-6 gap)",
+    "sidebar_layout": "Fixed 64-72px desktop collapsible sidebar or 260px expanded navigation, top header with role indicator & user profile, content area with generous internal padding (p-6 to p-8)",
+    "calendar_mode": "Monthly full-grid view + Weekly time-slot grid with conflict badges and filter tabs (Semua, Sesi Belajar, Try Out, Hari Libur)"
+  },
+  "motion": {
+    "transitions": "transition-colors duration-150 ease-out, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+    "dialog_entrance": "opacity-0 scale-95 to opacity-100 scale-100 duration-200",
+    "table_row_hover": "hover:bg-slate-50 dark:hover:bg-slate-800/60"
+  },
+  "accessibility": {
+    "apca_compliant": true,
+    "wcag_level": "WCAG AA (4.5:1 for normal text, 3:1 for big badges & controls)",
+    "keyboard_nav": "Full tab and focus ring support (focus-visible:ring-2 focus-visible:ring-blue-600)",
+    "test_attributes": "All buttons, inputs, links, tabs, and action cards MUST include descriptive role-based kebab-case `data-testid`"
+  },
+  "key_workflows_and_ui_specs": {
+    "1_pendaftaran_dan_invoice": {
+      "name": "Pendaftaran Siswa & Invoice Otomatis",
+      "components": [
+        "SiswaRegistrationModal: Form biodata (Nama, No HP Siswa & Ortu, Jenjang SD/SMP/SMA, Sekolah, Paket Pilihan)",
+        "PaketSelector: Toggle 'Paket Bulanan' vs 'Paket 8x Pertemuan' with dynamic price preview",
+        "InvoiceGenerator: Automatic invoice creation with code (INV-YYYYMM-XXXX), due date, status 'Belum Bayar'",
+        "PaymentConfirmation: Admin action 'Ubah ke Lunas' with date & payment method, automatically switching student status to 'Aktif' and updating dashboard statistics",
+        "PrintInvoiceView: Clean printable invoice with bimbel letterhead, student details, package break-down, and payment receipt stamp"
+      ]
+    },
+    "2_penjadwalan_dan_kalender": {
+      "name": "Manajemen Tentor, Jadwal & Deteksi Bentrok",
+      "components": [
+        "TentorManagement: Register tentor with name, subject specialization, contact info, and 'Tarif Honor Per Sesi' (CONFIDENTIAL / STRICTLY ADMIN ONLY - protected by backend role gating and masked UI in shared views)",
+        "JadwalFormWithConflictDetection: Real-time conflict validation checking: (a) Tentor already booked at same time slot, (b) Room/Ruang already occupied. Displays warning alert badge with conflicting schedule detail",
+        "AdminMonthlyCalendar: Comprehensive view with color-coded filters: Blue (Sesi Bimbel), Amber (Try Out), Rose (Hari Libur Nasional/Bimbel). Allows quick date switching and drag/click to view details",
+        "TentorCalendar: Scoped personal schedule showing exclusively sessions assigned to the logged-in tentor"
+      ]
+    },
+    "3_jurnal_dan_gaji": {
+      "name": "Jurnal Mengajar, Validasi Sesi & Rekap Payroll",
+      "components": [
+        "TentorTodaySchedule: Prominent widget for today's sessions with 1-click 'Isi Jurnal' action",
+        "JurnalFormModal: Attendance checklist per enrolled student (Hadir / Izin / Sakit / Alpha with notes), Materi yang Diajarkan (textarea), Catatan Perkembangan (textarea), attachment/photo optional, status 'Terkirim'",
+        "AdminValidationQueue: Table of submitted journals awaiting review with 1-click 'Validasi' or 'Revisi'. Validated session marks exactly 1 official billable session ('1 Sesi Sah')",
+        "PayrollRecapGenerator: Filter by Tentor and Month/Period -> calculates `Total Sesi Sah x Tarif Honor Per Sesi = Total Gaji`. Interactive detail drawer with printable Slip Gaji / Rekap Honor with Bimbel official stamp format"
+      ]
+    },
+    "4_laporan_belajar_dan_rapor": {
+      "name": "Laporan Belajar & Rapor Siswa",
+      "components": [
+        "LaporanBelajarSiswa: Aggregated learning progress history per student derived from validated journals (list of topics covered, attendance percentage, date logs). Includes 'Cetak PDF', 'Print Formal', and 'Salin Teks Ringkasan untuk WhatsApp Ortu'",
+        "RaporEvaluasiForm: Tentor input for periodic evaluation (Nilai Pemahaman Materi, Nilai Kuis/Tugas, Nilai Keaktifan, Catatan Karakter & Rekomendasi). Attendance percentage calculated automatically from journals",
+        "AdminRaporReviewPublish: Admin preview, verification status ('Draft' -> 'Diterbitkan'), and multi-student bulk print or single parent export"
+      ]
+    }
+  },
+  "instructions_to_main_agent": [
+    "Language: Entire user interface must be in clear, natural Bahasa Indonesia (e.g. 'Jurnal Mengajar', 'Rekap Gaji Tentor', 'Pendaftaran Siswa', 'Jadwal Hari Ini', 'Laporan Belajar', 'Rapor Evaluasi', 'Status: Belum Bayar / Lunas', 'Sesi Sah').",
+    "Privacy and Role Separation: Strictly separate Admin and Tentor views. Tentor NEVER sees financial numbers, billing invoices, or other tentors' honor rates. Admin has access to all payroll, invoice settlements, and validation controls.",
+    "Quick Switcher / Demo Role Persona: In the top navbar or login page, provide a fast role switcher (e.g. 'Login as Admin (Budi Santoso)' vs 'Login as Tentor (Siti Rahma - Matematika)') for seamless testing and demonstration.",
+    "Data Seeding: Pre-seed realistic Indonesian bimbel data: 8-12 students (SD, SMP, SMA), 4-5 tentors with various subjects (Matematika, Fisika, Biologi, Bahasa Inggris), invoices (some Lunas, some Belum Bayar), populated monthly calendar with sessions, Try Out, holidays, submitted and validated journals, and generated student report cards.",
+    "Export and Print Friendliness: All report cards, invoice receipts, WhatsApp message text formatters, and payroll slips must look impeccably styled both on screen and in `@media print` / print preview windows."
+  ],
+  "testing_attributes_required": [
+    "data-testid='login-role-admin'",
+    "data-testid='login-role-tentor'",
+    "data-testid='login-submit-button'",
+    "data-testid='sidebar-nav-dashboard'",
+    "data-testid='sidebar-nav-siswa'",
+    "data-testid='sidebar-nav-jadwal'",
+    "data-testid='sidebar-nav-jurnal'",
+    "data-testid='sidebar-nav-payroll'",
+    "data-testid='sidebar-nav-laporan'",
+    "data-testid='btn-tambah-siswa'",
+    "data-testid='btn-tambah-jadwal'",
+    "data-testid='btn-isi-jurnal'",
+    "data-testid='btn-validasi-jurnal'",
+    "data-testid='btn-cetak-rekap-gaji'",
+    "data-testid='btn-salin-wa-laporan'",
+    "data-testid='btn-terbitkan-rapor'"
+  ]
+}
